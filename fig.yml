@@ -1,0 +1,23 @@
+mongodb:
+  image: dockerfile/mongodb
+  ports:
+    - "27017:27017"
+
+ui:
+  image: smsohan/api_through_ui
+  links:
+    - mongodb
+  ports:
+    - "80:80"
+  environment:
+    SECRET_KEY_BASE:
+
+proxy:
+  image: smsohan/api_through
+  links:
+    - mongodb
+  ports:
+    - "9081:9081"
+  volumes:
+    - "/db:/data/db"
+  
