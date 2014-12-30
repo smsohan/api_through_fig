@@ -4,7 +4,7 @@ mongodb:
     - "27017:27017"
 
 ui:
-  image: smsohan/api_through_ui:v3
+  image: smsohan/api-through-ui
   links:
     - mongodb
   ports:
@@ -13,7 +13,7 @@ ui:
     SECRET_KEY_BASE:
 
 proxy:
-  image: smsohan/api_through:v3
+  image: smsohan/api-through
   links:
     - mongodb
   ports:
